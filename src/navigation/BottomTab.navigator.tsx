@@ -3,10 +3,10 @@ import React from "react"
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 
 // # COMPONENTS IMPORTS
-import DashboardScreen from "~/screens/Dashboard.screen"
-import ActivityScreen from "~/screens/Activity.screen"
-import SearchScreen from "~/screens/Search.screen"
-import SettingsScreen from "~/screens/Settings.screen"
+import DashboardScreen from "~/screens/tabs/Dashboard.screen"
+import ActivityScreen from "~/screens/tabs/Activity.screen"
+import SearchScreen from "~/screens/tabs/Search.screen"
+import SettingsScreen from "~/screens/tabs/Settings.screen"
 
 // # EXTRA IMPORTS
 import { useColorScheme } from "~/shared/hooks"
