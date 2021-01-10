@@ -10,11 +10,7 @@ const client = new alpaca.AlpacaClient({
 
 const getData = async () => {
   const account = await client.getAccount()
-
   console.log(await client.isAuthenticated())
-
-  console.log(account.buying_power) // number
-  console.log(account.raw().buying_power) // string
 }
 
 getData()
