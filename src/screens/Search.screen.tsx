@@ -17,37 +17,38 @@ export default function SearchScreen() {
   const plaidClient = new plaid.Client({
     clientID: plaidConfig.PLAID_CLIENT_ID,
     secret: plaidConfig.PLAID_SECRET,
-    env: plaidConfig.PLAID_ENVIRONMENT,
+    env: plaid.environments.sandbox,
     options: { version: "2019-05-29" },
   })
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const response = await plaidClient.createLinkToken({
-  //       user: {
-  //         client_user_id: plaidConfig.PLAID_CLIENT_ID,
-  //       },
-  //       client_name: "Plaid Test App",
-  //       products: ["auth", "transactions"],
-  //       country_codes: ["GB"],
-  //       language: "en",
-  //       webhook: "https://sample-web-hook.com",
-  //     })
+  useEffect(() => {
+    const getData = async () => {
+      const response = await plaidClient.createLinkToken({
+        user: {
+          client_user_id: "9abc38c3d5f57edf41926d03892f30",
+        },
+        client_name: "Plaid Test App",
+        products: ["auth", "transactions"],
+        country_codes: ["US"],
+        language: "en",
+      })
 
-  //     const linkToken = response.link_token
-  //     console.log(linkToken)
-  //   }
+      const linkToken = response.link_token
+      console.log(linkToken)
+      setToken(linkToken)
+    }
 
-  //   getData()
-  // }, [])
+    getData()
+  }, [])
+
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       {token && (
         <PlaidLink
           linkToken={token}
-          onEvent={(event) => console.log(event)}
-          onExit={(exit) => console.log(exit)}
-          onSuccess={(success) => console.log(success.publicToken)}
+          onEvent={(event) => console.log(event, "event")}
+          onExit={(exit) => console.log(exit, "exit")}
+          onSuccess={(success) => console.log(success.publicToken, "success")}
         />
       )}
     </View>
