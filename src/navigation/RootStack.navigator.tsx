@@ -4,6 +4,7 @@ import React from "react"
 
 // # COMPONENTS IMPORTS
 import BottomTabNavigator from "./BottomTab.navigator"
+import PlaidConnectScreen from "~/screens/simple/PlaidConnect.screen"
 
 // # EXTRA IMPORTS
 import { IRootStackNav } from "~/shared/typings"
@@ -16,6 +17,7 @@ export default function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
+      <Stack.Screen name="PlaidConnectScreen" component={PlaidConnectScreen} />
     </Stack.Navigator>
   )
 }

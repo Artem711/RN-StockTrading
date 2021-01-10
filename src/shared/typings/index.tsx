@@ -1,5 +1,6 @@
 export type IRootStackNav = {
   BottomTabNavigator: undefined
+  PlaidConnectScreen: undefined
 }
 
 export type IBottomTabNav = {
